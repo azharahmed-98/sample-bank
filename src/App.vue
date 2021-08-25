@@ -1,10 +1,8 @@
 <template>
   <v-app>
     <v-main>
-      <Header
-        :header-config='headerConfig'
-      ></Header>
-      <router-view/>
+      <Header />
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -18,8 +16,7 @@ export default {
     Header,
   },
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
