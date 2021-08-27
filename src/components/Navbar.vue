@@ -4,7 +4,7 @@
       <img
         class="mt-1 ml-n3"
         :src="require('../assets/finastra.png')"
-        height="60px"
+        height="55px"
         width="120px"
       />
     </router-link>
@@ -26,11 +26,29 @@
       </v-tooltip>
     </div>
     <div class="hidden-md-and-up">
-      <v-btn color="#694ed6" depressed fab small>
-        <v-icon>
-          mdi-dots-vertical
-        </v-icon>
-      </v-btn>
+      <v-menu offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn color="#694ed6" depressed fab small v-on="on">
+            <v-icon>
+              mdi-dots-vertical
+            </v-icon>
+          </v-btn>
+        </template>
+        <v-list router>
+          <v-list-item
+            v-for="(item, index) in navigationConfiguration"
+            :key="index"
+            :to="item.path"
+          >
+            <v-list-item-icon>
+              <v-icon color="#694ed6">{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title color="#694ed6">{{ item.name }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </div>
   </v-app-bar>
 </template>
