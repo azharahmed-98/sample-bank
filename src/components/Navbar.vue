@@ -9,7 +9,15 @@
       />
     </router-link>
     <v-spacer></v-spacer>
-    <div
+    <v-tabs background-color="#694ed6" right dark icons-and-text>
+      <v-tabs-slider></v-tabs-slider>
+      <v-tab v-for="(navItem, index) in navigationConfiguration" :key="index" :to="navItem.path">
+          {{ navItem.name }}
+          <v-icon>{{ navItem.icon }}</v-icon>
+        <router-link></router-link>
+      </v-tab>
+    </v-tabs>
+    <!-- <div
       v-for="(navItem, index) in navigationConfiguration"
       :key="index"
       router
@@ -24,7 +32,7 @@
         </template>
         <span>{{ navItem.name }}</span>
       </v-tooltip>
-    </div>
+    </div> -->
     <div class="hidden-md-and-up">
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
