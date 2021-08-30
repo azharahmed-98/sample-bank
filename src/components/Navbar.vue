@@ -9,19 +9,19 @@
       />
     </router-link>
     <v-spacer></v-spacer>
-    <v-tabs background-color="#694ed6" right dark icons-and-text>
+    <!-- <div> -->
+    <v-tabs background-color="#694ed6" right dark icons-and-text class="hidden-sm-and-down">
       <v-tabs-slider></v-tabs-slider>
       <v-tab v-for="(navItem, index) in navigationConfiguration" :key="index" :to="navItem.path">
-          {{ navItem.name }}
-          <v-icon>{{ navItem.icon }}</v-icon>
-        <router-link></router-link>
+        {{ navItem.name }}
+        <v-icon>{{ navItem.icon }}</v-icon>
       </v-tab>
     </v-tabs>
+    <!-- </div> -->
     <!-- <div
       v-for="(navItem, index) in navigationConfiguration"
       :key="index"
       router
-      class="hidden-sm-and-down"
     >
       <v-tooltip bottom small>
         <template v-slot:activator="{ on }">
