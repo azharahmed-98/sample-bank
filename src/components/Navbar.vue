@@ -9,30 +9,19 @@
       />
     </router-link>
     <v-spacer></v-spacer>
-    <!-- <div> -->
-    <v-tabs background-color="#694ed6" right dark icons-and-text class="hidden-sm-and-down">
-      <v-tabs-slider></v-tabs-slider>
+    <v-tabs
+      background-color="#694ed6"
+      right
+      dark
+      icons-and-text
+      class="hidden-sm-and-down"
+    >
+      <v-tabs-slider v-show="getCurrentRoutePath() != '/'"></v-tabs-slider>
       <v-tab v-for="(navItem, index) in navigationConfiguration" :key="index" :to="navItem.path">
         {{ navItem.name }}
-        <v-icon>{{ navItem.icon }}</v-icon>
+        <v-icon color="white">{{ navItem.icon }}</v-icon>
       </v-tab>
     </v-tabs>
-    <!-- </div> -->
-    <!-- <div
-      v-for="(navItem, index) in navigationConfiguration"
-      :key="index"
-      router
-    >
-      <v-tooltip bottom small>
-        <template v-slot:activator="{ on }">
-          <v-btn color="#694ed6" depressed v-on="on" :to="navItem.path">
-            <v-icon left>{{ navItem.icon }}</v-icon>
-            {{ navItem.name }}</v-btn
-          >
-        </template>
-        <span>{{ navItem.name }}</span>
-      </v-tooltip>
-    </div> -->
     <div class="hidden-md-and-up">
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
@@ -52,7 +41,7 @@
               <v-icon color="#694ed6">{{ item.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
-              <v-list-item-title color="#694ed6">{{ item.name }}</v-list-item-title>
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -62,6 +51,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Navbar',
   data() {
@@ -74,5 +64,19 @@ export default {
       ],
     };
   },
+  methods: {
+    getCurrentRoutePath() {
+      return this.$route.path;
+    },
+  },
 };
 </script>
+
+<style scoped>
+a.v-tab {
+  color: white !important;
+}
+.v-list-item__content{
+  color: #694ed6;
+}
+</style>
