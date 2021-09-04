@@ -1,5 +1,27 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h1>{{ componentName }}</h1>
   </div>
 </template>
+
+<script>
+import appCommonMixin from '@/mixins/appCommonMixin';
+
+export default {
+  name: 'About',
+  mixins: [appCommonMixin],
+  data() {
+    return {
+      componentName: '',
+    };
+  },
+  created() {
+    this.componentName = this.getComponentName();
+  },
+};
+
+</script>
+
+<style scoped>
+
+</style>
