@@ -4,12 +4,14 @@
       <div v-for="(productCategory, index) in Object.keys(products)" :key="index">
         <h1 class="my-5 text-capitalize">{{ productCategory }}</h1>
         <div
-          class="ml-4"
+          class="ml-4 my-5"
           v-for="(productSubCat, index) in Object.keys(products[productCategory])"
           :key="index"
         >
           <v-row>
-            <h2 class="grey--text text--darken-1">{{ productSubCat }}</h2>
+            <h2 class="grey--text text--darken-1 text-capitalize">
+              {{ products[productCategory][productSubCat][0].category }}
+            </h2>
           </v-row>
           <v-row>
             <v-col
@@ -27,7 +29,7 @@
                   max-width="300"
                 >
                   <v-img
-                    height="200"
+                    height="250"
                     width="300"
                     :src="require('@/assets/' + productType.image)"
                   ></v-img>
@@ -87,47 +89,47 @@ export default {
               title: 'Super Savings',
               interest: 3.9,
               transaction: 5000,
-              image: 'superSavings.png',
+              image: 'product-1.png',
             },
             {
               category: 'Savings Account',
               title: 'Silver Savings',
               interest: 4.5,
               transaction: 7000,
-              image: 'superSavings.png',
+              image: 'product-2.png',
             },
             {
               category: 'Savings Account',
               title: 'Gold Savings',
               interest: 5.2,
               transaction: 9000,
-              image: 'superSavings.png',
+              image: 'product-3.png',
             },
             {
               category: 'Savings Account',
               title: 'Diamond Savings',
               interest: 3,
               transaction: 9000,
-              image: 'superSavings.png',
+              image: 'product-4.png',
             },
             {
               category: 'Savings Account',
               title: 'Big Gold Savings',
               interest: 5.2,
               transaction: 9000,
-              image: 'superSavings.png',
+              image: 'product-5.png',
             },
             {
               category: 'Savings Account',
               title: 'Big Diamond Savings',
               interest: 3,
               transaction: 9000,
-              image: 'superSavings.png',
+              image: 'product-6.png',
             },
           ],
         },
         deposits: {
-          fixedDeposits: [
+          'Fixed Deposits': [
             {
               category: 'Fixed Deposits',
               title: 'Silver Fixed Deposits',
@@ -135,7 +137,7 @@ export default {
               interest: 7.2,
               minTransaction: 5000,
               maxTransaction: 50000,
-              image: 'superSavings.png',
+              image: 'product-7.png',
             },
             {
               category: 'Fixed Deposits',
@@ -144,7 +146,7 @@ export default {
               interest: 7.2,
               minTransaction: 5000,
               maxTransaction: 50000,
-              image: 'superSavings.png',
+              image: 'product-8.png',
             },
             {
               category: 'Fixed Deposits',
@@ -153,7 +155,7 @@ export default {
               interest: 7.2,
               minTransaction: 5000,
               maxTransaction: 50000,
-              image: 'superSavings.png',
+              image: 'product-9.png',
             },
             {
               category: 'Fixed Deposits',
@@ -162,13 +164,27 @@ export default {
               interest: 7.3,
               minTransaction: 5000,
               maxTransaction: 50000,
-              image: 'superSavings.png',
+              image: 'product-10.png',
             },
           ],
         },
       },
     };
   },
+  // computed: {
+  // created() {
+  //   const productCategories = Object.keys(this.products);
+  //   console.log(productCategories);
+  //   const productSubCategories = productCategories.forEach((productCategory) => {
+  //     console.log(Object.keys(this.products[productCategory]));
+  //   });
+  //   console.log(productSubCategories);
+  //   // const productSubCategory =
+  //   Object.keys(productCategories.forEach((key) => this.products[key]));
+  //   // console.log(productSubCategory);
+  // },
+  // }
+  // },
 };
 </script>
 
