@@ -47,7 +47,30 @@
                       </v-row>
                     </div>
                     <div>
-                      <v-row>
+                      <v-row v-if="productType.term">
+                        <v-col cols="2" sm="2" md="2" lg="2">
+                          <v-icon>mdi-calendar-account</v-icon>
+                        </v-col>
+                        <v-col cols="10" sm="10" md="10" lg="10">
+                          <span> Term - {{ productType.term }} Years </span>
+                        </v-col>
+                      </v-row>
+                    </div>
+                    <div>
+                      <v-row v-if="productType.minTransaction && productType.maxTransaction">
+                        <v-col cols="2" sm="2" md="2" lg="2">
+                          <v-icon>mdi-bank-transfer</v-icon>
+                        </v-col>
+                        <v-col cols="10" sm="10" md="10" lg="10">
+                          <span>
+                            Min - Max Amount: {{ productType.minTransaction }} -
+                            {{ productType.maxTransaction }} GBP
+                          </span>
+                        </v-col>
+                      </v-row>
+                    </div>
+                    <div>
+                      <v-row v-if="productType.transaction">
                         <v-col cols="2" sm="2" md="2" lg="2">
                           <v-icon>mdi-bank-transfer</v-icon>
                         </v-col>
@@ -171,20 +194,6 @@ export default {
       },
     };
   },
-  // computed: {
-  // created() {
-  //   const productCategories = Object.keys(this.products);
-  //   console.log(productCategories);
-  //   const productSubCategories = productCategories.forEach((productCategory) => {
-  //     console.log(Object.keys(this.products[productCategory]));
-  //   });
-  //   console.log(productSubCategories);
-  //   // const productSubCategory =
-  //   Object.keys(productCategories.forEach((key) => this.products[key]));
-  //   // console.log(productSubCategory);
-  // },
-  // }
-  // },
 };
 </script>
 
